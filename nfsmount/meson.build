@@ -4,6 +4,7 @@ nfsmount_srcs = [
     'portmap.c',
     'dummypmap.c',
     'sunrpc.c',
+    'bindresvport.c',
 ]
 
 nfsmount_lib = static_library('nfsmount_lib',

@@ -160,7 +160,8 @@ struct client *tcp_client(uint32_t server, uint16_t port, uint32_t flags)
 		goto bail;
 	}
 
-	if ((flags & CLI_RESVPORT) && bindresvport(sock, 0) == -1) {
+	/* kinit-standalone: use klibc_bindresvport */
+	if ((flags & CLI_RESVPORT) && klibc_bindresvport(sock, 0) == -1) {
 		perror("bindresvport");
 		goto bail;
 	}
@@ -205,6 +206,7 @@ struct client *udp_client(uint32_t server, uint16_t port, uint32_t flags)
 		goto bail;
 	}
 
+	/* kinit-standalone: use klibc_bindresvport */
 	if ((flags & CLI_RESVPORT) && bindresvport(sock, 0) == -1) {
 		perror("bindresvport");
 		goto bail;

@@ -294,7 +294,8 @@ int nfs_mount(const char *pathname, const char *hostname,
 		goto bail;
 	}
 
-	if (bindresvport(sock, 0) == -1) {
+	/* kinit-standalone: use klibc_bindresvport */
+	if (klibc_bindresvport(sock, 0) == -1) {
 		perror("bindresvport");
 		goto bail;
 	}

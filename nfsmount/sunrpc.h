@@ -107,4 +107,7 @@ int rpc_call(struct client *client, struct rpc *rpc);
 
 uint32_t portmap(uint32_t server, uint32_t program, uint32_t version, uint32_t proto);
 
+/* kinit-standalone */
+int klibc_bindresvport(int sd, struct sockaddr_in *sin);
+
 #endif /* NFSMOUNT_SUNRPC_H */
