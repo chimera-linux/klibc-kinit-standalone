@@ -1,3 +1,8 @@
+/* kinit-standalone: udphdr fields */
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+
 #include <errno.h>/*XXX*/
 /*
  * Packet socket handling glue.
@@ -8,7 +13,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+/* kinit-standalone: does not exist on musl, also not needed */
+#if 0
 #include <net/if_packet.h>
+#endif
 #include <netinet/if_ether.h>
 #include <netinet/in.h>
 #include <netpacket/packet.h>

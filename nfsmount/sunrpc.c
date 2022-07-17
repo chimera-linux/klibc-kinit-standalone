@@ -207,7 +207,7 @@ struct client *udp_client(uint32_t server, uint16_t port, uint32_t flags)
 	}
 
 	/* kinit-standalone: use klibc_bindresvport */
-	if ((flags & CLI_RESVPORT) && bindresvport(sock, 0) == -1) {
+	if ((flags & CLI_RESVPORT) && klibc_bindresvport(sock, 0) == -1) {
 		perror("bindresvport");
 		goto bail;
 	} else {

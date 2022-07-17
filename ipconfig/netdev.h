@@ -5,6 +5,11 @@
 #include <sys/utsname.h>
 #include <net/if.h>
 
+/* kinit-standalone portability */
+#ifndef SYS_NMLN
+#define SYS_NMLN 65
+#endif
+
 #define BPLEN		256
 #define FNLEN		128			/* from DHCP  RFC 2131 */
 
